@@ -1,0 +1,27 @@
+import random
+
+number = random.randint(1, 100)
+attempts = 0
+
+print("=== Игра «Угадай число» ===")
+print("Я загадал число от 1 до 100.")
+print("Попробуй его угадать!")
+
+while True:
+    try:
+        guess = int(input("\nВведи свой вариант: "))
+    except ValueError:
+        print("Ошибка! Нужно ввести целое число.")
+        continue
+
+    attempts += 1
+
+    if guess < number:
+        print("Моё число больше!")
+    elif guess > number:
+        print("Моё число меньше!")
+    else:
+        print("\n🎉 Ты угадал!")
+        print("Загаданное число:", number)
+        print("Количество попыток:", attempts)
+        break
